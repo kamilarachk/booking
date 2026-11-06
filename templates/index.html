@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Дома для отдыха</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { color: #333; background-color: #f4f7f6; }
+        header { background-color: #2c4c3b; color: white; padding: 20px 50px; display: flex; justify-content: space-between; align-items: center; }
+        header h1 { font-size: 24px; }
+        header nav a { color: white; text-decoration: none; margin-left: 20px; font-weight: 500; }
+        .hero { background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1448375240586-882707db888b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80') center/cover; height: 60vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; color: white; padding: 20px; }
+        .hero h2 { font-size: 48px; margin-bottom: 20px; }
+        .hero p { font-size: 20px; max-width: 600px; margin-bottom: 30px; }
+        .btn { background-color: #e67e22; color: white; padding: 15px 30px; text-decoration: none; font-size: 18px; border-radius: 5px; transition: background 0.3s; border: none; cursor: pointer; }
+        .btn:hover { background-color: #d35400; }
+        .features { display: flex; justify-content: space-around; padding: 50px 20px; background-color: white; flex-wrap: wrap; }
+        .feature-card { text-align: center; padding: 20px; width: 250px; margin: 10px; }
+        .feature-card h3 { color: #2c4c3b; margin-bottom: 10px; }
+        .booking { padding: 50px 20px; display: flex; flex-direction: column; align-items: center; background-color: #eef2f1; }
+        .booking h2 { color: #2c4c3b; margin-bottom: 30px; font-size: 32px; }
+        .booking-form { background: white; padding: 30px; border-radius: 10px; box-shadow: 0 4px 15px rgba(0,0,0,0.1); width: 100%; max-width: 500px; display: flex; flex-direction: column; gap: 15px; }
+        .booking-form input, .booking-form select { padding: 12px; border: 1px solid #ccc; border-radius: 5px; font-size: 16px; width: 100%; }
+        .booking-form label { font-weight: bold; color: #555; margin-bottom: -10px; }
+        footer { background-color: #2c4c3b; color: white; text-align: center; padding: 20px; font-size: 14px; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Лесные Дома</h1>
+        <nav>
+            <a href="#features">О домах</a>
+            <a href="#booking">Бронирование</a>
+            <a href="/register" style="color: #f1c40f; font-weight: bold;">Регистрация</a>
+            <a href="/view-bookings">Посмотреть все брони</a>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <h2>Выберите свой идеальный дом</h2>
+        <p>Уютные дома на опушке леса. Тишина, свежий воздух и камин ждут вас.</p>
+        <a href="#booking" class="btn">Забронировать</a>
+    </section>
+
+    <section class="features" id="features">
+        <div class="feature-card">
+            <h3>Природа</h3>
+            <p>Дома окружены густым лесом, в 5 минутах ходьбы - чистое лесное озеро.</p>
+        </div>
+        <div class="feature-card">
+            <h3>Камин и баня</h3>
+            <p>Вечером можно расслабиться у камина, а баня на дровах снимает любой стресс.</p>
+        </div>
+    </section>
+
+    <section class="booking" id="booking">
+        <h2>Забронировать дом</h2>
+        
+        <form class="booking-form" action="/api/book" method="POST">
+            
+            <label for="house_id">Выберите дом:</label>
+            <select id="house_id" name="house_id" required>
+                <option value="">Выберите дом...</option>
+                <option value="1">Дом ближе к озеру</option>
+                <option value="2">Дом ближе к лесу</option>
+                <option value="3">Дом с верандой</option>
+                <option value="4">Дом с 3 этажами</option>
+            </select>
+
+            <label for="checkin">Дата заезда:</label>
+            <input type="date" id="checkin" name="check_in" required>
+
+            <label for="checkout">Дата выезда:</label>
+            <input type="date" id="checkout" name="check_out" required>
+
+            <label for="name">Ваше имя:</label>
+            <input type="text" id="name" name="name" placeholder="Иван" required>
+
+            <label for="phone">Телефон:</label>
+            <input type="tel" id="phone" name="phone" placeholder="+7 (999) 123-45-67" required>
+
+            <button type="submit" class="btn" style="margin-top: 10px;">Отправить заявку</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>Связь с нами: +7 (969) 039-41-81 | rakhmanova.10@yandex.ru</p>
+    </footer>
+
+</body>
+</html>
